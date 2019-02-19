@@ -68,6 +68,9 @@ An emd file is a json formatted file. Here is an example.
   - "ObjectDetectionAPI", https://github.com/tensorflow/models/tree/master/research/object_detection
   - "DeepLab", https://github.com/tensorflow/models/tree/master/research/deeplab
   
+  **PyTorch**
+  - 'FastaiSSD', https://github.com/Esri/arcgis-python-api/tree/master/talks/uc2018/Plenary/pools
+  
   **CNTK**
   - "FasterRCNN", https://docs.microsoft.com/en-us/cognitive-toolkit/object-detection-using-faster-r-cnn
   - "AzurePixelLevelLandClassification", https://github.com/Azure/pixel_level_land_classification
