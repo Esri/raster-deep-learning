@@ -44,7 +44,10 @@ class TemplateBaseDetector:
         self.load_model(model_path)
 
     def getConfiguration(self, **scalars):
-        if 'BatchSize' not in self.json_info:
+
+        if 'BatchSize' not in self.json_info and 'batch_size' not in scalars:
+            self.batch_size = 1
+        elif 'BatchSize' not in self.json_info and 'batch_size' in scalars:
             self.batch_size = int(scalars['batch_size'])
         else:
             self.batch_size = int(self.json_info['BatchSize'])

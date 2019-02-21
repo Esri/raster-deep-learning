@@ -91,6 +91,7 @@ class ChildObjectDetector(TemplateBaseDetector):
         if 'PerProcessGPUMemoryFraction' in self.json_info:
             config.gpu_options.per_process_gpu_memory_fraction = float(self.json_info['PerProcessGPUMemoryFraction'])
 
+        batch = np.transpose(batch, (0, 2, 3, 1))
         with self.detection_graph.as_default():
             with tf.Session(config=config) as sess:
                 feed_dict = {

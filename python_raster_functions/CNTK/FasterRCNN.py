@@ -61,6 +61,8 @@ class ChildObjectDetector(TemplateBaseDetector):
                 },
             ]
         )
+        required_parameters[:] = [d for d in required_parameters if not d.get('name') == 'batch_size']
+
         return required_parameters
 
     def inference(self, batch, **scalars):
