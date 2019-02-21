@@ -55,6 +55,8 @@ class ChildImageClassifier(TemplateBaseClassifier):
                 # https://github.com/Esri/raster-functions/wiki/PythonRasterFunction#getparameterinfo
             ]
         )
+        required_parameters[:] = [d for d in required_parameters if not d.get('name') == 'batch_size']
+
         return required_parameters
 
     # template method to fill in
