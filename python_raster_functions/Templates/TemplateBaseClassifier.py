@@ -44,7 +44,6 @@ class TemplateBaseClassifier:
         self.load_model(model_path)
 
     def getConfiguration(self, **scalars):
-
         if 'BatchSize' not in self.json_info and 'batch_size' not in scalars:
             self.batch_size = 1
         elif 'BatchSize' not in self.json_info and 'batch_size' in scalars:
