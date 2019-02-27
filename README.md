@@ -1,11 +1,38 @@
-# raster-deep-learning
+# Deep Learning Python Raster Functions For ArcGIS
 
-Here are the built-in python raster functions for deep learning.
+Deep learning model inferences in ArcGIS are implemented on top of the python raster function framework. 
+This repository is served as a harbor to provide guidance on build-in deep learning python raster functions in ArcGIS,
+ and most important to educate the users to create custom python raster functions to integrate deep learning 
+ workflows into ArcGIS.   
 
-## Getting Started
+## Prerequisites
+1. The users need to install *either* of the following ArcGIS platforms:
+    - *ArcGIS Pro 2.3 or later*.
+    - *ArcGIS 10.7 or later*.
+    
+2. CPU or NVIDIA GPU + CUDA CuDNN
 
-* [Esri model definition file (emd)](docs/writing_model_definition.md)
-* [Custom python raster functions guide](docs/writing_deep_learning_python_raster_functions.md)
+## Getting started
+1. Clone raster-deep-learning repository: 
+   ```
+   git clone https://github.com/Esri/raster-deep-learning.git 
+   ```
+2. Set up python environment for deep learning in ArcGIS.
+   - Install required deep learning libraries through *[ArcGIS Pro Python Package Manager](http://pro.arcgis.com/en/pro-app/arcpy/get-started/what-is-conda.htm)*.
+   
+   - Alternatively, the batch file *[env_setup.bat](env_setup.bat)* at root directory automatically creates a new python environment
+   in ArcGIS setup folder and installs all the required deep learning libraries and dependencies within this repository. 
+   Use with caution since the installation needs around 5 GB disk space on C: drive. Right click the batch file and run as administrator. 
+   The batch script run takes less than 5 minutes on the author's machine. 
+
+3. Understand *[Esri model definition file (emd)](docs/writing_model_definition.md)*.
+
+4. (Optional) Understand *python raster functions* through reading the document
+*[Anatomy of a Python Raster Function](https://github.com/Esri/raster-functions/wiki/PythonRasterFunction#anatomy-of-a-python-raster-function)*.  
+ 
+5. (Optional) If your interest is to write custom deep learning model inference python raster functions, 
+*[Custom python raster functions guide](docs/writing_deep_learning_python_raster_functions.md)* provides details 
+on each function to be called, and how to implement model inference call in python raster function.    
 
 ## Features
 
@@ -13,15 +40,13 @@ Here are the built-in python raster functions for deep learning.
 * Python raster function templates for bounding box based object detection and pixel-level image classification
 (Image Segmentation in Computer Vision) 
 
-## Requirements
+## Examples 
 
-* ArcGIS Pro 2.3 or later
+## Frequently Asked Questions
 
 ## Resources
 
 * [The raster function Wiki](https://github.com/Esri/raster-functions/wiki)
-* [ArcGIS Pro Python Package Manager](http://pro.arcgis.com/en/pro-app/arcpy/get-started/what-is-conda.htm)
-
 ## Issues
 
 Find a bug or want to request a new feature?  Please let us know by submitting an issue.
