@@ -97,7 +97,7 @@ We provide deep learning model inference python raster functions (PRFs) for a li
     [Sample emd file](examples/keras/mask_rcnn/mask_rcnn.emd) |
     [Build-in PRF](python_raster_functions/Keras/MaskRCNN.py)**]
 
-* [Fast.ai SSD on PyTorch]()
+* [Fast.ai SSD implementation on PyTorch](https://github.com/Esri/arcgis-python-api/tree/master/talks/uc2018/Plenary/pools)
 
     [**[Sample case](examples/pytorch/README.md) | 
     [Sample emd file](examples/pytorch/pytorch_fastai_ssd.emd) |
