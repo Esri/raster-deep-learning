@@ -1,0 +1,42 @@
+{
+    "Framework":"TensorFlow",
+    "ModelConfiguration":"DeepLab",
+    "ModelFile":".\\frozen_inference_graph.pb",
+    "ModelType":"ImageClassification",
+    "ExtractBands":[0,1,2],
+    "ImageWidth":256,
+    "ImageHeight":256,
+	"BatchSize":1,
+    "Classes": [
+        {
+            "Value":0,
+            "Name":"Evergreen Forest",
+            "Color":[0, 51, 0]
+         },
+         {
+            "Value":1,
+            "Name":"Grassland/Herbaceous",
+            "Color":[241, 185, 137]
+         },
+         {
+            "Value":2,
+            "Name":"Bare Land",
+            "Color":[236, 236, 0]
+         },
+         {
+            "Value":3,
+            "Name":"Open Water",
+            "Color":[0, 0, 117]
+         },
+         {
+            "Value":4,
+            "Name":"Scrub/Shrub",
+            "Color":[102, 102, 0]
+         },
+         {
+            "Value":5,
+            "Name":"Impervious Surface",
+            "Color":[236, 236, 236]
+         }
+    ]
+}

@@ -1,0 +1,17 @@
+{
+    "Framework": "TensorFlow",
+    "ModelConfiguration": "ObjectDetectionAPI",
+    "ModelFile":".\\frozen_inference_graph.pb",
+    "ModelType":"ObjectDetection",
+    "ImageHeight":850,
+    "ImageWidth":850,
+    "ExtractBands":[0,1,2],
+
+    "Classes" : [
+      {
+        "Value": 0,
+        "Name": "Tree",
+        "Color": [0, 255, 0]
+      }
+    ]
+}

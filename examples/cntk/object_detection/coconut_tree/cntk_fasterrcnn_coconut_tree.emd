@@ -1,0 +1,17 @@
+{
+    "Framework":"CNTK",
+    "ModelConfiguration":"FasterRCNN",
+    "ModelType":"ObjectDetection",
+    "ModelFile":".\\CoconutTreeDetection.model",
+    "ExtractBands" : [0,1,2],
+    "ImageHeight":850,
+    "ImageWidth":850,
+    "BatchSize":1,
+    "Classes" : [
+    {
+        "Value" : 0,
+        "Name" : "CoconutTree",
+        "Color" : [0, 255, 0]
+    }
+    ]
+}

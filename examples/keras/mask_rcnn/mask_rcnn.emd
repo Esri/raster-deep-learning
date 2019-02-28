@@ -1,0 +1,20 @@
+{
+    "Framework": "Keras",
+    "ModelConfiguration": {
+       "Name":"MaskRCNN",
+       "Architecture":".\\mrcnn\\spacenet",
+       "Config":".\\mrcnn\\spacenet"
+    },
+    "ModelFile":".\\mask_rcnn_spacenet_0053.h5",
+    "ModelType":"ObjectDetection",
+    "ImageHeight":650,
+    "ImageWidth":650,
+    "ExtractBands":[0,1,2],
+    "Classes" : [
+      {
+        "Value": 1,
+        "Name": "Building",
+        "Color": [0, 255, 0]
+      }
+    ]
+}
