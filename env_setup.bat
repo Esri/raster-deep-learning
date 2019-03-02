@@ -1,6 +1,9 @@
 SETLOCAL
-SET SCRIPTS_DIR=C:\Program Files\ArcGIS\Pro\bin\Python\Scripts\
-SET ENV_DIR=C:\Program Files\ArcGIS\Pro\bin\Python\envs\
+FOR /F "usebackq tokens=2*" %%A IN (`reg query "HKLM\Software\Microsoft\Windows\CurrentVersion\Uninstall\ArcGISPro" /v "InstallLocation"`) DO (
+  SET ARCGISPRO_INSTALL_DIR=%%B
+)
+SET SCRIPTS_DIR=%ARCGISPRO_INSTALL_DIR%bin\Python\Scripts\
+SET ENV_DIR=%ARCGISPRO_INSTALL_DIR%bin\Python\envs\
 SET ENV_NAME=DeepLearningEnvTest
 
 cd "%SCRIPTS_DIR%"

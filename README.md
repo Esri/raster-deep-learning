@@ -26,9 +26,9 @@ This repository is served as a harbor to provide guidance on deep learning pytho
    
    - ArcGIS Pro users can install through *[ArcGIS Pro Python Package Manager](http://pro.arcgis.com/en/pro-app/arcpy/get-started/what-is-conda.htm)*.
    
-   - Alternatively, ArcGIs Pro users can use this batch file *[env_setup.bat](env_setup.bat)* at root directory to automatically install 
-   all the required deep learning libraries for the sample cases in this repository into ArcGIS Pro. 
-   Note: use it with caution, in default batch installation will take 5 GB disk space on C: drive. To execute the batch file, 
+   - Alternatively, ArcGIS Pro users can use this batch file *[env_setup.bat](env_setup.bat)* at root directory to automatically install 
+   all the required deep learning libraries for the sample cases in this repository. 
+   Note: use it with caution, by default batch installation will take 5 GB disk space on C: drive. To execute the batch file, 
    right click the batch file and run as administrator. This batch file takes less than 5 minutes to run on the author's test machine. 
    
    - For ArcGIS Enterprise customers, the deep learning libraries need to be installed to the directory 
@@ -45,12 +45,13 @@ This repository is served as a harbor to provide guidance on deep learning pytho
        activate deeplearning_env_name
        
        Step4: Install tensorflow or tensorflow-gpu in the new python environment. 
-       conda install tensorflow-gpu
+       conda install tensorflow
        
        Step5: Swap it to the activate python environment of the ArcGIS servers. 
        proswap deeplearning_env_name
        ```
-
+    Restart ArcGIS server in Services Manager once finish the environment setup. For details, please read 
+    [Configure ArcGIS Image Server for deep learning raster analytics](https://enterprisedev.arcgis.com/en/portal/latest/administer/windows/configure-and-deploy-arcgis-enterprise-for-deep-learning-raster-analytics.htm).
 4. Understand *[Esri model definition file (emd)](docs/writing_model_definition.md)*.
 
 5. (Optional) Understand *python raster functions* through this document
