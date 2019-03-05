@@ -1,0 +1,16 @@
+{
+    "Framework": "PyTorch",
+    "ModelConfiguration": "FastaiSSD",
+    "ModelFile":".\\9.h5",
+    "ModelType":"ObjectDetection",
+    "ImageHeight":224,
+    "ImageWidth":224,
+    "ExtractBands":[0,1,2],
+    "Classes" : [
+      {
+        "Value": 0,
+        "Name": "Pool",
+        "Color": [0, 255, 0]
+      }
+    ]
+}
