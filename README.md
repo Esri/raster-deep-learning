@@ -33,7 +33,8 @@ This repository is served as a harbor to provide guidance on deep learning pytho
    
    - For ArcGIS Enterprise users, the deep learning libraries need to be installed to the python environment: 
    *C:\ArcGIS\Server\framework\runtime\ArcGIS\bin\Python* on each raster analytics server machine. 
-   The batch file *[env_setup_server.bat](env_setup_server.bat)* at root directory is used to automate the environment setup process for ArcGIS 10.7 server, specifically. 
+   The batch file *[env_setup_server_tensorflow.bat](env_setup_server_tensorflow.bat)* at root directory automates the TensorFlow environment setup process for ArcGIS 10.7 server, specifically. 
+   It is not recommended to install different deep learning frameworks (TensorFlow, Keras, PyTorch, etc) into one python environment.   
    Note: use it with caution, by default batch installation will take 5 GB disk space on C: drive. To execute the batch file, 
    right click the batch file and run as administrator. This batch file takes less than 5 minutes to run on the author's test machine.
    Once finishing the deep learning python environment setup, the users need to restart the ArcGIS server in Services Manager. 
