@@ -23,9 +23,6 @@ CALL "%SCRIPTS_DIR%conda.exe" install -c anaconda %TF_PACKAGE% keras scikit-imag
 ECHO INFO: Install cntk-gpu, pytorch, torchvision, and Pillow ...
 CALL "%ENV_DIR%%ENV_NAME%\Scripts\pip.exe" install %CTNK_PACKAGE% %PYTORCH% torchvision Pillow
 
-ECHO INFO: Upgrading h5py library to latest version ...
-CALL "%SCRIPTS_DIR%conda.exe" install -c scw h5py --yes
-
 ECHO INFO: Run proswap to switch to the new env ...
 CALL "%SCRIPTS_DIR%proswap.bat" %ENV_NAME%
 
