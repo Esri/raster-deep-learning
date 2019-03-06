@@ -31,9 +31,16 @@ This repository is served as a harbor to provide guidance on deep learning pytho
    Note: use it with caution, by default batch installation will take 5 GB disk space on C: drive. To execute the batch file, 
    right click the batch file and run as administrator. This batch file takes less than 5 minutes to run on the author's test machine. 
    
-   - For ArcGIS Enterprise customers, the deep learning libraries need to be installed to the directory 
-   *C:\ArcGIS\Server\framework\runtime\ArcGIS\bin\Python* on each raster analytics server machine using command lines.
-   Here is an example to install tensorflow:
+   - For ArcGIS Enterprise users, the deep learning libraries need to be installed to the python environment: 
+   *C:\ArcGIS\Server\framework\runtime\ArcGIS\bin\Python* on each raster analytics server machine. 
+   The batch file *[env_setup_server_tensorflow.bat](env_setup_server_tensorflow.bat)* at root directory automates the TensorFlow environment setup process for ArcGIS 10.7 server, specifically. 
+   It is not recommended to install different deep learning frameworks (TensorFlow, Keras, PyTorch, etc) into one python environment.   
+   Note: use it with caution, by default batch installation will take 5 GB disk space on C: drive. To execute the batch file, 
+   right click the batch file and run as administrator. This batch file takes less than 5 minutes to run on the author's test machine.
+   Once finishing the deep learning python environment setup, the users need to restart the ArcGIS server in Services Manager. 
+   For more details, here is a document on [Configure ArcGIS Image Server for deep learning raster analytics](https://enterprisedev.arcgis.com/en/portal/latest/administer/windows/configure-and-deploy-arcgis-enterprise-for-deep-learning-raster-analytics.htm).
+    
+   - For users who would like to manually setup deep learning python environment using command lines, here is an example to set up TensorFlow environment on ArcGIS raster analytics server:
        ```
        Step1: Change Directory to ArcGIS python scripts directory.
        cd C:\ArcGIS\Server\framework\runtime\ArcGIS\bin\Python\Scripts
@@ -50,8 +57,7 @@ This repository is served as a harbor to provide guidance on deep learning pytho
        Step5: Swap it to the activate python environment of the ArcGIS servers. 
        proswap deeplearning_env_name
        ```
-    Restart ArcGIS server in Services Manager once finish the environment setup. For details, please read 
-    [Configure ArcGIS Image Server for deep learning raster analytics](https://enterprisedev.arcgis.com/en/portal/latest/administer/windows/configure-and-deploy-arcgis-enterprise-for-deep-learning-raster-analytics.htm).
+       
 4. Understand *[Esri model definition file (emd)](docs/writing_model_definition.md)*.
 
 5. (Optional) Understand *python raster functions* through this document
