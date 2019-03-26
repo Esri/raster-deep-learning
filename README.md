@@ -20,8 +20,9 @@ This repository is served as a harbor to provide guidance on deep learning pytho
    git clone https://github.com/Esri/raster-deep-learning.git 
    ```
    
-2. Download sample images and sample trained deep learning models (Link is TBD)
-
+2. [Download sample images and sample trained deep learning models](https://www.arcgis.com/apps/MinimalGallery/index.html?appid=99c39f7512d54881bc365583c76c7da6).
+   
+   - Through the above link, the users can download the sample trained deep learning models, as well as the sample images for testing each model.
 3. Set up python deep learning environment in ArcGIS, and install required deep learning libraries in *[requirements.txt](requirements.txt)*.
    
    - ArcGIS Pro users can install through *[ArcGIS Pro Python Package Manager](http://pro.arcgis.com/en/pro-app/arcpy/get-started/what-is-conda.htm)*.
@@ -35,7 +36,7 @@ This repository is served as a harbor to provide guidance on deep learning pytho
    *C:\ArcGIS\Server\framework\runtime\ArcGIS\bin\Python* on each raster analytics server machine. 
    The batch file *[env_setup_server_tensorflow.bat](env_setup_server_tensorflow.bat)* at root directory automates the TensorFlow environment setup process for ArcGIS 10.7 server, specifically. 
    It is not recommended to install different deep learning frameworks (TensorFlow, Keras, PyTorch, etc) into one python environment.   
-   Note: use it with caution, by default batch installation will take 5 GB disk space on C: drive. To execute the batch file, 
+   Note: use it with caution, by default batch installation will take a few gigabytes on C: drive. To execute the batch file, 
    right click the batch file and run as administrator. This batch file takes less than 5 minutes to run on the author's test machine.
    Once finishing the deep learning python environment setup, the users need to restart the ArcGIS server in Services Manager. 
    For more details, here is a document on [Configure ArcGIS Image Server for deep learning raster analytics](https://enterprisedev.arcgis.com/en/portal/latest/administer/windows/configure-and-deploy-arcgis-enterprise-for-deep-learning-raster-analytics.htm).
@@ -110,15 +111,17 @@ We provide deep learning model inference python raster functions (PRFs) for a li
     [Sample emd file](examples/pytorch/pytorch_fastai_ssd.emd) |
     [Build-in PRF](python_raster_functions/PyTorch/FastaiSSD.py)**]
 
+## Resources
+
+* ArcGIS Learn Lessons:
+  - [Use Deep Learning to Assess Palm Tree Health](https://learn.arcgis.com/en/projects/use-deep-learning-to-assess-palm-tree-health/)
+* [The raster function Wiki](https://github.com/Esri/raster-functions/wiki)
+
 ## Features
 Python raster function templates are provided for bounding box based object detection and pixel-level image classification
 (Image Segmentation in Computer Vision) 
 
 ## [Frequently Asked Questions](docs/questions_and_answers.md)
-
-## Resources
-
-* [The raster function Wiki](https://github.com/Esri/raster-functions/wiki)
 
 ## Issues
 
