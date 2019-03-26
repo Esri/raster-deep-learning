@@ -1,4 +1,7 @@
 # TensorFlow Coconut Tree Detection Example in ArcGIS Pro
+Step 0. Download the test deep learning model and image [here](https://www.arcgis.com/home/item.html?id=9e45c7ba200c4f1ea1379983c3ef23d8).
+You can also use your own trained model and test image.
+
 Step 1. Open "Detect Object Using Deep Learning" geoprocessing tool. 
 
 Step 2. Fill in the parameters.

@@ -1,4 +1,7 @@
 # Keras Mask RCNN House Footprints Example in ArcGIS Pro
+Step 0. Download the test deep learning model and image [here](https://www.arcgis.com/home/item.html?id=646dae44d4334d5ba68c7541031d9edc).
+You can also use your own trained model and test image.
+
 Step 1. Open "Detect Object Using Deep Learning"
 
 Step 2. Fill in the parameters
