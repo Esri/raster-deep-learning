@@ -1,22 +1,22 @@
 # Esri Model Definition file
 
-Esri Model Definition(emd) file is a configuration file in JSON format that tells ArcGIS which Python Raster Function to 
-use(indicated by *InferenceFunction*). It is also an argument (as file path) to the Python Raster Function.
-Thus you can put configurable and meta data in the emd and access the data from the Python Raster Function, for example, model 
-location. Take the built-in python raster functions for example, we put the height and width of the training image chips 
-in the emd file. Then the raster functions access this dimension information and ask ArcGIS to hand over the 
-correct size pixel blocks through the python raster function [*getConfiguration*](https://github.com/Esri/raster-functions/wiki/PythonRasterFunction#getconfiguration)
-api method. 
+The Esri Model Definition file (EMD) is a configuration file in JSON format that provides the parameters to use 
+for deep learning model inference in ArcGIS. Importantly, the EMD contains a parameter 
+called "InferenceFunction" which specifies the custom Python raster function you want to use. Therefore, the EMD also 
+serves as an argument (as file path) to the Python raster function. The EMD includes model properties and metadata 
+that can be accessed from the Python raster function (for example, the location of the trained model file).
 
-An emd file is a json formatted file. Here is an example.
+In the built-in Python raster functions examples, we include the height and width of the training image chips 
+in the EMD file. Then, the raster functions can access this information through the getConfiguration method
+to ensure that ArcGIS delivers the pixel blocks of the correct size. 
 
 ```json
 {
     "Framework": "TensorFlow",
     "ModelConfiguration": "ObjectDetectionAPI",
-    "ModelFile":"\\\\pa\\raster\\DataSwap\\Han\\PRFTestData\\ObjectDetection\\Tree\\tensorflow\\exported_graphs_tree\\frozen_inference_graph.pb",
+    "ModelFile":".\\frozen_inference_graph.pb",
     "ModelType":"ObjectionDetection",
-    "InferenceFunction":"[Functions]\\CustomObjectDetector.py",
+    "InferenceFunction":".\\CustomObjectDetector.py",
     "ImageHeight":850,
     "ImageWidth":850,
     "ExtractBands":[0,1,2],
@@ -30,21 +30,7 @@ An emd file is a json formatted file. Here is an example.
     ]
 }
 ```
-
-## Keywords that are used by ArcGIS Pro and mandatory:
-- "ModelType"
-
-  Type: String.
-
-  The type of the model: "ImageClassification" for classifying pixels, and "ObjectDetection" for detecting objects.
- 
-- "InferenceFunction"
-
-  Type: String.
-
-  The path of a custom inference Python function. If not specified, will use default built-in python raster function. 
-  
-## Keywords that are used by built-in python raster functions and the templates:
+## Keywords supported in built-in Python raster functions:
 - "Framework"
 
   Type: String.
@@ -57,12 +43,12 @@ An emd file is a json formatted file. Here is an example.
   Type: String or JSON object.
 
   The name of a model configuration. A model configuration specifies a model trained by a well-known python implementation.
-  There are many existing open source deep learning projects that define "standard" inputs and outputs 
-  configuration, and inference logic. ArcGIS built-in python raster function support a set of predefined such well-known 
-  configurations. The number of supported model configurations/architectures is increasing. 
+  There are many existing open source deep learning projects that define "standard" inputs and outputs, 
+  and inference logic. ArcGIS built-in Python raster functions support a set of predefined well-known 
+  configurations, and we are continuing to expand the list of supported model configurations. 
 
-  If you train your deep learning model by using one of existing open source code projects or model configurations, 
-  you can select a model architecture/configuration. The current supported model architectures and their project pages are:
+  The current supported model configurations are listed below along
+  with a link to their project pages:
 
   **TensorFlow**
   - "ObjectDetectionAPI", https://github.com/tensorflow/models/tree/master/research/object_detection
@@ -89,13 +75,6 @@ An emd file is a json formatted file. Here is an example.
       "Config":".\\mrcnn\\spacenet"
     },
     ```
-
-  **Templates**
-  - "ImageClassifierTemplate"
-    If you fill in the image classifier template with your own python code.
-  
-  - "ObjectDetectorTemplate"
-    If your fill in the object detector template with your own python code.
 
 - "ModelFile"
 
@@ -142,7 +121,33 @@ An emd file is a json formatted file. Here is an example.
   This is only used in pixel-level classification. If the model has a padding itself, for example, if a model outputs
   the center 128x128 segmentation pixels given an input tile 256x256, the model has a padding of 64.
 
-## emd for custom python raster functions
-If you don't train your model using the well-known model configurations listed above thus have your own inference function. You can either
-use our provided built-in templates if this could make your work easier or point "InferenceFunction" to your own python 
-raster function. In any way the built-in python raster functions are always good references.
+- "ModelType"
+
+  Type: String.
+
+  The type of the model: "ImageClassification" for classifying pixels, and "ObjectDetection" for detecting objects.
+ 
+- "InferenceFunction"
+
+  Type: String.
+
+  The path of a custom inference Python raster function. If not specified, the default built-in Python raster function
+  will be used. 
+  
+- Templates
+
+    --"ImageClassifierTemplate" If you fill in the image classifier template with your own python code.
+    
+    --"ObjectDetectorTemplate" If your fill in the object detector template with your own python code.
+
+  Deep learning Python raster function templates are also provided to help you writing your custom deep learning 
+  Python raster function.  
+  
+## EMD for custom Python raster functions
+If you find that the sample model definition files and built-in Python raster function cannot describe your deep learning
+model architecture/properties, or if you use a deep learning framework other than TensorFlow, Keras, CNTK, or PyTorch, you
+can write your own deep learning Python raster function and reference the Python raster function in the EMD file next 
+to the "InferenceFunction" parameter. The built-in Python raster functions are good references for formatting your custom
+deep learning Python raster functions. 
+
+

@@ -1,20 +1,20 @@
-# Writing deep learning python raster functions
-If you find that our current model definition and built-in python raster functions can't describe your deep learning
-model architecture/properties or if you use a different deep learning framework, you can write your own deep python 
-raster function yourself and just point the "Inference Function" to your own python raster function in the model 
-definition file.
+# Writing deep learning Python raster function
+If you find that the sample model definition files and built-in Python raster functions cannot describe your deep learning
+model architecture/properties, or if you use a deep learning framework other than TensorFlow, Keras, CNTK, or PyTorch, 
+you can write your own deep learning Python raster function and reference the Python raster function in the .emd file next
+to the "InferenceFunction" parameter.
 
-The help documents for general python raster function in ArcGIS can be found at the 
-[python raster function wiki page](https://github.com/Esri/raster-functions/wiki). 
-The [anatomy of a python raster function](https://github.com/Esri/raster-functions/wiki/PythonRasterFunction#anatomy-of-a-python-raster-function)
-is especially useful to know the components of a python raster function. You can get started from there to get familiar 
-with python raster functions. In this page we will cover how a deep learning based python raster function generally 
-looks like to help you write your own function more efficiently.
+Help documentation for working with Python raster functions in ArcGIS can be found on the 
+[Python raster function wiki page](https://github.com/Esri/raster-functions/wiki). 
+The [anatomy of a Python raster function](https://github.com/Esri/raster-functions/wiki/PythonRasterFunction#anatomy-of-a-python-raster-function)
+is an especially useful document if you want to get familiar with the components of a Python raster function.
+In this page, we will show you what a deep learning Python raster function 
+looks like and how to write your own functions more efficiently.
 
 ## `.initialize(self,**kwargs)`
-This method is called at the very first beginning in your python raster function.
-kwargs\['model'\] is the model definition file. Here is what is suggested to be done in this method.
-1. Load information from you model definition file.
+This method is called at the beginning of your Python raster function.
+kwargs\['model'\] is the model definition file. This method requires the following steps:
+1. Load the model information your Esri model definition file (EMD).
 2. Load your deep learning model and keep a handle to the model.
 
 e.g.
@@ -34,11 +34,10 @@ def initialize(self, **kwargs):
 ```
 
 ## `.getParameterInfo(self)`
-This is called second after initialize(). You can define your parameters in this method. The first two parameters are
-mandatory to be input raster and input model definition file. You can copy this code snippet to your python raster 
-function.
+This is called after initialize(), and it is where you define your parameters. The first two parameters are
+mandatory as they define the input raster and the input EMD. You can copy the following code snippet directly to your 
+Python raster function:
 
-e.g.
 ```python
         {
             'name': 'raster',
@@ -58,8 +57,8 @@ e.g.
 
 ## `.getConfiguration(self, **scalars)`
 This method is used to set the input bands, padding and tile size. 
-*sclars* has all the parameter values that can be accessed by the parameter name. Remember the save the parameter 
-values here if you want to use the parameter values in other methods. 
+The *sclars* value contains all the parameter values that can be accessed by the parameter name. 
+Remember to save the parameter values here if you want to use the parameter values in other methods. 
 
 e.g.
 ```python
@@ -78,7 +77,7 @@ def getConfiguration(self, **scalars):
 ```
 
 ## `.getFields(self)`
-Write this method to return the fields JSON string of the output feature class. 
+Use this method to return the JSON string fields of the output feature class. 
 
 e.g.
 ```python
@@ -111,8 +110,8 @@ def getFields(self):
 ```
 
 ## `.getGeometryType(self)`
-Write this method if you use the tool Detect Objects Using Deep Learning to tell the feature geometry type of 
-the output. It would be usually polygon if the model is to draw bounding boxes around objects.
+Use this method if you use the Detect Objects Using Deep Learning tool and you want to declare the feature geometry type of 
+the output detected objects. Typically, the output is a polygon feature class if the model is to draw bounding boxes around objects.
 
 e.g.
 ```python
@@ -127,15 +126,14 @@ def getGeometryType(self):
 ```
 
 ## `.vectorize(self, **pixelBlocks)`
-Write this method if you use Detect Objects Using Deep Learning. This method is supposed to return a dictionary in which
-the "output_vectors" property is the string of the features in JSON format in the image space. Normally what should 
-to be done in this method are:
-1. obtain the input image from *pixelBlocks* and transform to the shape of the model's input.
-2. run the deep learning model on the input image tile.
-3. post process the model's output as necessary.
-4. generate a feature json object, wrap it as a string in a dictionary and return the dictionary.
+Use this method if you use the Detect Objects Using Deep Learning tool. This method returns a dictionary in which
+the "output_vectors" property is a string of features in image space in JSON format. A typical workflow is below:
+1. Obtain the input image from *pixelBlocks* and transform to the shape of the model's input.
+2. Run the deep learning model on the input image tile.
+3. Post-process the model's output as necessary.
+4. Generate a feature JSON object, wrap it as a string in a dictionary and return the dictionary.
 
-An e.g. workflow would be:
+e.g.
 ```python
 def vectorize(self, **pixelBlocks):
     # obtain the input image
@@ -156,13 +154,13 @@ def vectorize(self, **pixelBlocks):
 
 
 ## `.updatePixels(self, tlc, shape, props, **pixelBlocks)`
-Write this method if you use Classify Pixels Using Deep Learning for semantic segmentation.
-This method is supposed to return the classified raster wrapped in a dictionary. Normally what should be done in this
-method are:
-1. obtain the input image from *pixelBlocks* and transform to the shape of the model's input.
-2. run the deep learning model on the input image tile.
-3. post process the model's output as necessary.
-4. generate a classified raster, wrap it in a dictionary and return the dictionary.
+Use this method if you use the Classify Pixels Using Deep Learning tool for semantic segmentation.
+This method returns the classified raster wrapped in a dictionary. The typical workflow is below:
+
+1. Obtain the input image from *pixelBlocks* and transform to the shape of the model's input.
+2. Run the deep learning model on the input image tile.
+3. Post-process the model's output as necessary.
+4. Generate a classified raster, wrap it in a dictionary and return the dictionary.
 
 e.g.
 ```python
