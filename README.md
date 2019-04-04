@@ -1,16 +1,16 @@
-# Deep Learning Python Raster Functions For ArcGIS
+# Deep Learning Python raster function For ArcGIS
 
-Deep learning model inferences in ArcGIS are implemented on top of the python raster function framework. 
-This repository is served as a harbor to provide guidance on deep learning python raster functions in ArcGIS,
- and most important to educate the users on creating custom python raster functions to integrate more deep learning 
- models into ArcGIS.   
+Deep learning model inferencing in ArcGIS is implemented on top of the Python raster function framework. 
+This repository serves to provide guidance on deep learning Python raster functions in ArcGIS,
+ and to educate users on how to create custom Python raster functions to integrate additional deep learning 
+ models with the ArcGIS platform.   
 
 ## Prerequisites
-1. The users need to install either of the following ArcGIS platforms:
+1. Deep learning in ArcGIS requires one of the following products:
     - *ArcGIS Pro 2.3 or later*.
     - *ArcGIS Enterprise 10.7 or later*.
 
-2. Esri Image Analyst license
+2. An ArcGIS Image Analyst license is required to run inferencing tools.
 
 3. CPU or NVIDIA GPU + CUDA CuDNN
 
@@ -20,28 +20,29 @@ This repository is served as a harbor to provide guidance on deep learning pytho
    git clone https://github.com/Esri/raster-deep-learning.git 
    ```
    
-2. [Download sample images and sample trained deep learning models](https://www.arcgis.com/apps/MinimalGallery/index.html?appid=99c39f7512d54881bc365583c76c7da6).
+2. [Download sample data, including imagery and trained deep learning models](https://www.arcgis.com/apps/MinimalGallery/index.html?appid=99c39f7512d54881bc365583c76c7da6).
    
-   - Through the above link, the users can download the sample trained deep learning models, as well as the sample images for testing each model.
-3. Set up python deep learning environment in ArcGIS, and install required deep learning libraries in *[requirements.txt](requirements.txt)*.
+   - Use the link above to download the sample data and models for four different model frameworks.
+3. Set up the Python deep learning environment in ArcGIS, and install the required deep learning libraries listed in *[requirements.txt](requirements.txt)*.
    
-   - ArcGIS Pro users can install through *[ArcGIS Pro Python Package Manager](http://pro.arcgis.com/en/pro-app/arcpy/get-started/what-is-conda.htm)*.
+   - Install Python environments in ArcGIS Pro using the *[ArcGIS Pro Python Package Manager](http://pro.arcgis.com/en/pro-app/arcpy/get-started/what-is-conda.htm)*.
    
-   - Alternatively, ArcGIS Pro users can use this batch file *[env_setup.bat](env_setup.bat)* at root directory to automatically install 
+   - Alternatively, ArcGIS Pro users can use this batch file *[env_setup.bat](env_setup.bat)* at the root directory to automatically install 
    all the required deep learning libraries for the sample cases in this repository. 
-   Note: use it with caution, by default batch installation will take 5 GB disk space on C: drive. To execute the batch file, 
-   right click the batch file and run as administrator. This batch file takes less than 5 minutes to run on the author's test machine. 
+   NOTE: By default, the batch installation will take up 5 GB of disk space on the C:/ drive (or the disk where ArcGIS Pro is installed). 
+   To execute the batch file, right click the batch file and choose to Run as Administrator. This installation takes less than 5 minutes to run on the author's test machine. 
    
-   - For ArcGIS Enterprise users, the deep learning libraries need to be installed to the python environment: 
-   *C:\ArcGIS\Server\framework\runtime\ArcGIS\bin\Python* on each raster analytics server machine. 
-   The batch file *[env_setup_server_tensorflow.bat](env_setup_server_tensorflow.bat)* at root directory automates the TensorFlow environment setup process for ArcGIS 10.7 server, specifically. 
-   It is not recommended to install different deep learning frameworks (TensorFlow, Keras, PyTorch, etc) into one python environment.   
-   Note: use it with caution, by default batch installation will take a few gigabytes on C: drive. To execute the batch file, 
-   right click the batch file and run as administrator. This batch file takes less than 5 minutes to run on the author's test machine.
-   Once finishing the deep learning python environment setup, the users need to restart the ArcGIS server in Services Manager. 
-   For more details, here is a document on [Configure ArcGIS Image Server for deep learning raster analytics](https://enterprisedev.arcgis.com/en/portal/latest/administer/windows/configure-and-deploy-arcgis-enterprise-for-deep-learning-raster-analytics.htm).
+   - For ArcGIS Enterprise users, the deep learning libraries need to be installed to the Python environment on each raster analytics server machine: 
+   *C:\ArcGIS\Server\framework\runtime\ArcGIS\bin\Python*. 
+   The batch file *[env_setup_server_tensorflow.bat](env_setup_server_tensorflow.bat)* at root directory automates the TensorFlow environment setup process for ArcGIS Enterprise 10.7, specifically. 
+   It is not recommended to install different deep learning frameworks (TensorFlow, Keras, PyTorch, etc) into one Enterprise Python environment.   
+   NOTE: By default, batch installation will take ~2-3 GB of disk space on the C:/ drive (or the disk where ArcGIS server is installed). To execute the batch file, 
+   right click the batch file and choose to Run as Administrator. This installation takes less than 5 minutes to run on the author's test machine.
+   Once you finish setting up the Python environment, you will need to restart the ArcGIS server. 
+   For more details on setting up the Enterprise environment, see [Configure ArcGIS Image Server for deep learning raster analytics](https://enterprisedev.arcgis.com/en/portal/latest/administer/windows/configure-and-deploy-arcgis-enterprise-for-deep-learning-raster-analytics.htm).
     
-   - For users who would like to manually setup deep learning python environment using command lines, here is an example to set up TensorFlow environment on ArcGIS raster analytics server:
+   - If you prefer to manually setup the deep learning Python environment using command lines, see the example below which 
+    installs TensorFlow on the ArcGIS raster analytics server:
        ```
        Step1: Change Directory to ArcGIS python scripts directory.
        cd C:\ArcGIS\Server\framework\runtime\ArcGIS\bin\Python\Scripts
@@ -59,73 +60,73 @@ This repository is served as a harbor to provide guidance on deep learning pytho
        proswap deeplearning_env_name
        ```
        
-4. Understand *[Esri model definition file (emd)](docs/writing_model_definition.md)*.
+4. Get familiar with the format and requirements of the *[Esri model definition file (emd)](docs/writing_model_definition.md)*.
 
-5. (Optional) Understand *python raster functions* through this document
+5. (Optional) Get familiar with *Python raster function*.
 *[Anatomy of a Python Raster Function](https://github.com/Esri/raster-functions/wiki/PythonRasterFunction#anatomy-of-a-python-raster-function)*.  
  
-6. (Optional) If you are interested in writing custom deep learning python raster functions to integrate deep learning
-models into ArcGIS, 
-*[Custom python raster functions guide](docs/writing_deep_learning_python_raster_functions.md)* provides details 
-on the functions to be called and how to implement model inference call in python raster function.    
+6. (Optional) If you are interested in writing custom deep learning Python raster function to integrate additional deep learning
+models into ArcGIS, the
+*[Custom Python raster function guide](docs/writing_deep_learning_python_raster_functions.md)* provides details 
+on the necessary functions and how to implement model inference calls using Python raster function.    
 
 ## Examples
 
-We provide deep learning model inference python raster functions (PRFs) for a list of open source deep learning model configurations.
+We provide deep learning model inference Python raster function (PRF) for a list of open source deep learning model configurations.
 
-*Note: Click on the model configuration name will go to the corresponding GitHub repository or project landing page of this model config.*
+*Click on the model configuration name to go to the corresponding GitHub repository or project landing page for that model.*
 
 * *[Tensorflow object detection API](https://github.com/tensorflow/models/tree/master/research/object_detection)*.
 
     [**[Sample case](examples/tensorflow/object_detection/coconut_tree_detection/README.md) | 
     [Sample emd file](examples/tensorflow/object_detection/coconut_tree_detection/tensorflow_objectdetectionapi_coconuttree.emd) |
-    [Build-in PRF](python_raster_functions/TensorFlow/ObjectDetectionAPI.py)**]
+    [Sample PRF](python_raster_functions/TensorFlow/ObjectDetectionAPI.py)**]
 
 * *[Tensorflow DeepLab for Semantic Image Segmentation](https://github.com/tensorflow/models/tree/master/research/deeplab)*
     
     [**[Sample case](examples/tensorflow/image_classification/land_cover_classification/README.md) | 
     [Sample emd file](examples/tensorflow/image_classification/land_cover_classification/tensorflow_deeplab_landclassification.emd) |
-    [Build-in PRF](python_raster_functions/TensorFlow/DeepLab.py)**]
+    [Sample PRF](python_raster_functions/TensorFlow/DeepLab.py)**]
     
 * [Cognitive Toolkit (CNTK) object detection using Faster R-CNN](https://docs.microsoft.com/en-us/cognitive-toolkit/object-detection-using-faster-r-cnn)
     
     [**[Sample case](examples/cntk/object_detection/coconut_tree/README.md) | 
     [Sample emd file](examples/cntk/object_detection/coconut_tree/cntk_fasterrcnn_coconut_tree.emd) |
-    [Build-in PRF](python_raster_functions/CNTK/FasterRCNN.py)**]
+    [Sample PRF](python_raster_functions/CNTK/FasterRCNN.py)**]
     
 * [Azure pixel-level land cover classification on Cognitive Toolkit (CNTK)](https://github.com/Azure/pixel_level_land_classification)
 
     [**[Sample case](examples/cntk/image_classification/land_classification/README.md) | 
     [Sample emd file](examples/cntk/image_classification/land_classification/azure_pixel_level_land_classification.emd) |
-    [Build-in PRF](python_raster_functions/CNTK/AzurePixelLevelLandClassification.py)**]
+    [Sample PRF](python_raster_functions/CNTK/AzurePixelLevelLandClassification.py)**]
     
 * [Keras Mask R-CNN for object detection and instance segmentation](https://github.com/matterport/Mask_RCNN)
   
     [**[Sample case](examples/keras/mask_rcnn/README.md) | 
     [Sample emd file](examples/keras/mask_rcnn/mask_rcnn.emd) |
-    [Build-in PRF](python_raster_functions/Keras/MaskRCNN.py)**]
+    [Sample PRF](python_raster_functions/Keras/MaskRCNN.py)**]
 
-* [Fast.ai SSD implementation on PyTorch](https://github.com/Esri/arcgis-python-api/tree/master/talks/uc2018/Plenary/pools)
+* [Fast.ai SSD implementation with PyTorch](https://github.com/Esri/arcgis-python-api/tree/master/talks/uc2018/Plenary/pools)
 
     [**[Sample case](examples/pytorch/README.md) | 
     [Sample emd file](examples/pytorch/pytorch_fastai_ssd.emd) |
-    [Build-in PRF](python_raster_functions/PyTorch/FastaiSSD.py)**]
+    [Sample PRF](python_raster_functions/PyTorch/FastaiSSD.py)**]
 
 ## Resources
 
-* ArcGIS Learn Lessons:
+* ArcGIS Learn Lesson:
   - [Use Deep Learning to Assess Palm Tree Health](https://learn.arcgis.com/en/projects/use-deep-learning-to-assess-palm-tree-health/)
 * [The raster function Wiki](https://github.com/Esri/raster-functions/wiki)
 
 ## Features
-Python raster function templates are provided for bounding box based object detection and pixel-level image classification
-(Image Segmentation in Computer Vision) 
+Python Raster function templates are provided for object detection and pixel-level image classification
+(Image Segmentation in Computer Vision). 
 
 ## [Frequently Asked Questions](docs/questions_and_answers.md)
 
 ## Issues
 
-Find a bug or want to request a new feature?  Please let us know by submitting an issue.
+Did you find a bug or do you want to request a new feature?  Please let us know by submitting an issue.
 
 ## Contributing
 
