@@ -86,10 +86,11 @@ model_meta = {
 }
 
 requires_grad = False
-if 'CUDA_VISIBLE_DEVICES' not in os.environ or int(os.environ['CUDA_VISIBLE_DEVICES']) >= 0:
-    USE_GPU = True
-else:
-    USE_GPU = False
+#if 'CUDA_VISIBLE_DEVICES' not in os.environ or int(os.environ['CUDA_VISIBLE_DEVICES']) >= 0:
+USE_GPU = False
+if 'CUDA_VISIBLE_DEVICES' in os.environ:
+    if int(os.environ['CUDA_VISIBLE_DEVICES']) >= 0:
+        USE_GPU = True
 
 def map_over(x, f): return [f(o) for o in x] if is_listy(x) else f(x)
 def V (x, requires_grad=False, volatile=False): return map_over(x, lambda o: V_(o, requires_grad, volatile))
@@ -121,7 +122,10 @@ def to_np(v):
     if isinstance(v, (np.ndarray, np.generic)): return v
     if isinstance(v, (list,tuple)): return [to_np(o) for o in v]
     if isinstance(v, Variable): v=v.data
-    if isinstance(v, torch.cuda.HalfTensor): v=v.float()
+    if USE_GPU:
+        if isinstance(v, torch.cuda.HalfTensor): v=v.float()
+    else:
+        if isinstance(v, torch.HalfTensor): v=v.float()
     return v.cpu().numpy()
 
 def cut_model(m, cut):

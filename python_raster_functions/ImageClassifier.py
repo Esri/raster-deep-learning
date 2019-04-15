@@ -53,6 +53,15 @@ class ImageClassifier:
             except json.decoder.JSONDecodeError:
                 raise Exception("Invalid model argument")
 
+        if 'device' in kwargs:
+            device = kwargs['device']
+            if device < -1:
+                os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
+                device = prf_utils.get_available_device()
+            os.environ['CUDA_VISIBLE_DEVICES'] = str(device)
+        else:
+            os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
+
         sys.path.append(os.path.dirname(__file__))
         framework = self.json_info['Framework']
         if 'ModelConfiguration' in self.json_info:
@@ -64,15 +73,6 @@ class ImageClassifier:
                     '{}.{}'.format(framework, self.json_info['ModelConfiguration']['Name'])), 'ChildImageClassifier')
         else:
             raise Exception("Invalid model configuration")
-
-        if 'device' in kwargs:
-            device = kwargs['device']
-            if device < -1:
-                os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
-                device = prf_utils.get_available_device()
-            os.environ['CUDA_VISIBLE_DEVICES'] = str(device)
-        else:
-            os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
 
         self.child_image_classifier = ChildImageClassifier()
         self.child_image_classifier.initialize(model, model_as_file)
