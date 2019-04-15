@@ -59,6 +59,15 @@ class ObjectDetector:
             except json.decoder.JSONDecodeError:
                 raise Exception("Invalid model argument")
 
+        if 'device' in kwargs:
+            device = kwargs['device']
+            if device < -1:
+                os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
+                device = prf_utils.get_available_device()
+            os.environ['CUDA_VISIBLE_DEVICES'] = str(device)
+        else:
+            os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
+
         sys.path.append(os.path.dirname(__file__))
         framework = self.json_info['Framework']
         if 'ModelConfiguration' in self.json_info:
@@ -70,15 +79,6 @@ class ObjectDetector:
                     '{}.{}'.format(framework, self.json_info['ModelConfiguration']['Name'])), 'ChildObjectDetector')
         else:
             raise Exception("Invalid model configuration")
-
-        if 'device' in kwargs:
-            device = kwargs['device']
-            if device < -1:
-                os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
-                device = prf_utils.get_available_device()
-            os.environ['CUDA_VISIBLE_DEVICES'] = str(device)
-        else:
-            os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
 
         self.child_object_detector = ChildModelDetector()
         self.child_object_detector.initialize(model, model_as_file)
