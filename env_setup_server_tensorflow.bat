@@ -16,7 +16,7 @@ CALL "%SCRIPTS_DIR%conda.exe" create --name %ENV_NAME% --clone arcgispro-py3
 CALL "%SCRIPTS_DIR%activate.bat" %ENV_NAME%
 
 ECHO INFO: Install tensorflow-gpu ...
-CALL "%SCRIPTS_DIR%conda.exe" install -c anaconda %TF_PACKAGE% --yes
+CALL "%SCRIPTS_DIR%conda.exe" install -c anaconda %TF_PACKAGE%=1.13.1 --yes
 
 ECHO INFO: Run proswap to switch to the new env ...
 CALL "%SCRIPTS_DIR%proswap.bat" %ENV_NAME%
