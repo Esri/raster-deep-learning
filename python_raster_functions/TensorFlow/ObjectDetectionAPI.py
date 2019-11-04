@@ -115,8 +115,8 @@ class ChildObjectDetector(TemplateBaseDetector):
                     scores = output_dict['scores']
                     classes = output_dict['classes']
 
-                    bounding_boxes[:, :, [0, 2]] = bounding_boxes[:, :, [0, 2]] * 300  # self.json_info['ImageHeight']
-                    bounding_boxes[:, :, [1, 3]] = bounding_boxes[:, :, [1, 3]] * 300  # self.json_info['ImageWidth']
+                    bounding_boxes[:, :, [0, 2]] = bounding_boxes[:, :, [0, 2]] * self.json_info['ImageHeight']
+                    bounding_boxes[:, :, [1, 3]] = bounding_boxes[:, :, [1, 3]] * self.json_info['ImageWidth']
 
                     batch_bb.append(bounding_boxes)
                     batch_s.append(scores)
