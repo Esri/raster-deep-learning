@@ -18,4 +18,8 @@ Step 1. Open "Classify Pixels Using Deep Learning" geoprocessing tool.
 
 Step 2. Fill in the parameters.
 
+![](https://github.com/gbrunner/raster-deep-learning/blob/master/docs/img/onnx_landclassificationexampletool.png)
+
 Step 3. Run the tool.
+
+![](https://github.com/gbrunner/raster-deep-learning/blob/master/docs/img/onnx_landclassificationexample.png)
