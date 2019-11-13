@@ -1,7 +1,7 @@
 # Instructions
 This examples uses the model fron the CNTK model from the [Deep Learning - CNTK for Land Cover Classification](https://www.arcgis.com/home/item.html?id=e8bc272d1ce2456fa4b87c9af749a57f) example.
 
-The CNTK model file was converted to ONNX using the CNTK to ONNX Export](https://github.com/onnx/tutorials/blob/master/tutorials/CntkOnnxExport.ipynb) instructions. 
+The CNTK model file was converted to ONNX using the [CNTK to ONNX Export](https://github.com/onnx/tutorials/blob/master/tutorials/CntkOnnxExport.ipynb) instructions. 
 
 ``` 
 import cntk as C
