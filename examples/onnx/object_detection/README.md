@@ -34,10 +34,8 @@ Step 1. Open "Detect Object Using Deep Learning" geoprocessing tool.
 
 Step 2. Fill in the parameters.
 
-| Parameter | Value |
-| --------- | ----- |
-| Input Raster | "images\Kolovai_UAV4R_Subset.tif" |
-| Input Model Definition File | tensorflow_objectdetectionapi_coconuttree.emd |
-| Arguments | padding:64,score_threshold:0.6,batch_size:1 |
+![](https://github.com/gbrunner/raster-deep-learning/blob/master/docs/img/onnx_objectdetectiontool.png)
 
 Step 3. Run the Model.
+
+![](https://github.com/gbrunner/raster-deep-learning/blob/master/docs/img/onnx_objectdetection.png)
