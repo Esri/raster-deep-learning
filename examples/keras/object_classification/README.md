@@ -1,8 +1,8 @@
-# Keras Mask RCNN House Footprints Example in ArcGIS Pro
+# Keras House Damage Classification Example in ArcGIS Pro
 Step 0. Download test deep learning model, input image, input features from the link (TBD).
 You can also use your own trained model and test image. 
 
-Step 1. Open "Detect Object Using Deep Learning"
+Step 1. Open "Classify Object Using Deep Learning"
 
 Step 2. Fill in the parameters
 
