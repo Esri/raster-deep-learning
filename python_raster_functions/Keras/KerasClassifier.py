@@ -99,7 +99,7 @@ class ChildObjectDetector:
         clf = self.model
         image_dim = self.resampleSize
 
-        batch_images_resize = np.zeros((batch, image_dim, image_dim, bands), dtype=batch_images.dtype)
+        batch_images_resized = np.zeros((batch, image_dim, image_dim, bands), dtype=batch_images.dtype)
 
         for i in range(0, batch):
 
@@ -113,7 +113,7 @@ class ChildObjectDetector:
             else:
                 image_resize_modified = image_resize
 
-            batch_images_resize[i] = image_resize_modified
+            batch_images_resized[i] = image_resize_modified
 
             # Return boundaries of image tiles as the geometries. These geometries are ignored by the
             # GP tool if the input feature class is given.
@@ -122,7 +122,7 @@ class ChildObjectDetector:
             rings.append([[[0, 0], [0, width - 1], [height - 1, width - 1], [height-1, 0]]])
 
         with self.graph.as_default():
-            labels, confidences = self.prediction(im=batch_images_resize, clf=clf)
+            labels, confidences = self.prediction(im=batch_images_resized, clf=clf)
 
         return rings, confidences, labels
 
