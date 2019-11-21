@@ -87,38 +87,47 @@ class ChildObjectDetector(TemplateBaseDetector):
         #Todo: fill in this method to inference your model and return bounding boxes, scores and classes
         score_threshold = float(scalars['score_threshold'])
 
+        batch_bounding_boxes, batch_scores, batch_classes = [], [], []
+        batch_bb, batch_s, batch_c = [], [], []
+
         config = tf.ConfigProto()
         if 'PerProcessGPUMemoryFraction' in self.json_info:
             config.gpu_options.per_process_gpu_memory_fraction = float(self.json_info['PerProcessGPUMemoryFraction'])
 
         batch = np.transpose(batch, (0, 2, 3, 1))
+        images = batch
         with self.detection_graph.as_default():
             with tf.Session(config=config) as sess:
-                feed_dict = {
-                    'image_tensor:0': batch
-                }
-                fetches = {
-                    'boundingboxes': 'detection_boxes:0',
-                    'scores': 'detection_scores:0',
-                    'classes': 'detection_classes:0'
-                }
+                for image_np in images:
+                    image_np_expanded = np.expand_dims(image_np, axis=0)
+                    feed_dict = {
+                        'image_tensor:0': image_np_expanded
+                    }
+                    fetches = {
+                        'boundingboxes': 'detection_boxes:0',
+                        'scores': 'detection_scores:0',
+                        'classes': 'detection_classes:0'
+                    }
 
-                output_dict = sess.run(fetches, feed_dict=feed_dict)
+                    output_dict = sess.run(fetches, feed_dict=feed_dict)
 
-        bounding_boxes = output_dict['boundingboxes']
-        scores = output_dict['scores']
-        classes = output_dict['classes']
+                    bounding_boxes = output_dict['boundingboxes']
+                    scores = output_dict['scores']
+                    classes = output_dict['classes']
 
-        bounding_boxes[:, :, [0, 2]] = bounding_boxes[:, :, [0, 2]] * self.json_info['ImageHeight']
-        bounding_boxes[:, :, [1, 3]] = bounding_boxes[:, :, [1, 3]] * self.json_info['ImageWidth']
+                    bounding_boxes[:, :, [0, 2]] = bounding_boxes[:, :, [0, 2]] * self.json_info['ImageHeight']
+                    bounding_boxes[:, :, [1, 3]] = bounding_boxes[:, :, [1, 3]] * self.json_info['ImageWidth']
 
-        batch_bounding_boxes, batch_scores, batch_classes = [], [], []
+                    batch_bb.append(bounding_boxes)
+                    batch_s.append(scores)
+                    batch_c.append(classes)
 
-        batch_size = bounding_boxes.shape[0]
+        batch_size = images.shape[0]  # bounding_boxes.shape[0]
         for batch_idx in range(batch_size):
-            keep_indices = np.where(scores[batch_idx] > score_threshold)
-            batch_bounding_boxes.append(bounding_boxes[batch_idx][keep_indices])
-            batch_scores.append(scores[batch_idx][keep_indices])
-            batch_classes.append(classes[batch_idx][keep_indices])
+            keep_indices = np.where(batch_s[batch_idx] > score_threshold)
+            batch_bounding_boxes.append(batch_bb[batch_idx][keep_indices])
+            batch_scores.append(batch_s[batch_idx][keep_indices])
+            batch_classes.append(batch_c[batch_idx][keep_indices])
+
 
         return batch_bounding_boxes, batch_scores, batch_classes
