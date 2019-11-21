@@ -1,0 +1,42 @@
+{
+    "ModelFile": "woolseyFire_600_50.pth",
+    "ImageHeight": 600,
+    "ImageWidth": 600,
+    "ModelParameters": {
+        "backbone": "resnet34"
+    },
+    "LearningRate": "0.004365158322401656",
+    "ModelName": "FeatureClassifier",
+    "resize_to": null,
+    "Framework": "PyTorch",
+    "ModelConfiguration": "FeatureClassifier",
+    "ModelType": "ObjectClassification",
+    "ExtractBands": [
+        0,
+        1,
+        2
+    ],
+    "CropSizeFixed": 1,
+    "BlackenAroundFeature": 0,
+    "ImageSpaceUsed": "MAP_SPACE",
+    "Classes": [
+        {
+            "Value": 1,
+            "Name": "Damaged",
+            "Color": [
+                17,
+                157,
+                34
+            ]
+        },
+        {
+            "Value": 2,
+            "Name": "Undamaged",
+            "Color": [
+                158,
+                187,
+                171
+            ]
+        }
+    ]
+}

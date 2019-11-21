@@ -106,11 +106,23 @@ We provide deep learning model inference Python raster function (PRF) for a list
     [Sample emd file](examples/keras/mask_rcnn/mask_rcnn.emd) |
     [Sample PRF](python_raster_functions/Keras/MaskRCNN.py)**]
 
+* [Keras image classification](https://www.geeksforgeeks.org/python-image-classification-using-keras/) (For ArcGIS Pro 2.5 and Enterprise 10.8 and later)
+  
+    [**[Sample case](examples/keras/object_classification/README.md) | 
+    [Sample emd file](examples/keras/object_classification/model/HouseDamageClassifier_ProBuiltin.emd) |
+    [Sample PRF](python_raster_functions/Keras/KerasClassifier.py)**]
+
 * [Fast.ai SSD implementation with PyTorch](https://github.com/Esri/arcgis-python-api/tree/master/talks/uc2018/Plenary/pools)
 
-    [**[Sample case](examples/pytorch/README.md) | 
-    [Sample emd file](examples/pytorch/pytorch_fastai_ssd.emd) |
+    [**[Sample case](examples/pytorch/object_detection/README.md) | 
+    [Sample emd file](examples/pytorch/object_detection/pytorch_fastai_ssd.emd) |
     [Sample PRF](python_raster_functions/PyTorch/FastaiSSD.py)**]
+
+* [Object Classification implementation with PyTorch](https://developers.arcgis.com/python/sample-notebooks/building-damage-assessment-using-feature-classifier/) (For ArcGIS Pro 2.5 and Enterprise 10.8 and later)
+
+    [**[Sample case](examples/pytorch/object_classification/README.md) | 
+    [Sample emd file](examples/pytorch/object_classification/woolseyFire_600_50.emd) |
+    [Sample PRF](python_raster_functions/PyTorch/FeatureClassifier.py)**]
 
 ## Resources
 

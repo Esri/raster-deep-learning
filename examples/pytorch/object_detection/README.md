@@ -12,4 +12,4 @@ Step 2. Fill in the parameters.
 | Input Model Definition File | pytorch_fastai_ssd.emd |
 | Arguments | padding:0, batch_size:1|
 Step 3. Run the GP tool.
-<img src='../../docs/img/pytorch_fastaiSSD_swimmingpooldetectionexample.jpg'>
+<img src='../../../docs/img/pytorch_fastaiSSD_swimmingpooldetectionexample.jpg'>

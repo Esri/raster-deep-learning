@@ -1,0 +1,26 @@
+{
+    "Framework": "Keras",
+    "ModelConfiguration": {
+       "Name":"KerasClassifier"
+    },
+    "ModelFile":".\\Damage_Classification_Model_V7.h5",
+    "ModelType":"ObjectClassification",
+    "ImageHeight":256,
+    "ImageWidth":256,
+    "ExtractBands":[0,1,2],
+    "CropSizeFixed": 1,
+    "BlackenAroundFeature": 1,
+    "ImageSpaceUsed": "MAP_SPACE",
+    "Classes" : [
+      {
+        "Value": 0,
+        "Name": "undamaged",
+        "Color": [0, 255, 0]
+      },
+      {
+	"Value": 1,
+        "Name": "damaged",
+        "Color": [0, 255, 0]
+      }
+    ]
+}
