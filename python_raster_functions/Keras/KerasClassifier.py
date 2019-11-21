@@ -122,11 +122,11 @@ class ChildObjectDetector:
             rings.append([[[0, 0], [0, width - 1], [height - 1, width - 1], [height-1, 0]]])
 
         with self.graph.as_default():
-            labels, confidences = self.prediction(im=batch_images_resized, clf=clf)
+            labels, confidences = self.predict(im=batch_images_resized, clf=clf)
 
         return rings, confidences, labels
 
-    def prediction(self, im, clf, image_dim = 64):
+    def predict(self, im, clf, image_dim = 64):
         # Need image to be in shape (?, 64, 64, 3)
         pr = clf.predict_on_batch(im)
 
@@ -203,7 +203,7 @@ class ChildObjectDetector:
 
             # Resize image using bilinear interpolation
             if scale != 1:
-                img = self.Resize(img, (round(h * scale), round(w * scale)), preserve_range=True)
+                img = self.resize(img, (round(h * scale), round(w * scale)), preserve_range=True)
 
             # Need padding or cropping?
             if mode == "square":
@@ -250,7 +250,7 @@ class ChildObjectDetector:
             return img.astype(image_dtype), window, scale, padding, crop
 
 
-    def Resize(self, img, output_shape, order=1, mode='constant', cval=0, clip=True,
+    def resize(self, img, output_shape, order=1, mode='constant', cval=0, clip=True,
                    preserve_range=False, anti_aliasing=False, anti_aliasing_sigma=None):
             """A wrapper for Scikit-Image resize().
 
