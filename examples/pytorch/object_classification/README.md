@@ -1,5 +1,5 @@
 # PyTorch Building Damage Classification Example in ArcGIS Pro
-Step 0. Download test deep learning model, image and input feature class from the link (TBD).
+Step 0. Download test deep learning model, image and input feature class from the link [here](https://www.arcgis.com/home/item.html?id=d8b0584ff908448abfa095533484934d).
 You can use Train Deep Learning Model geoprocessing tool to train your own deep learning model, specify the model type as "FeatureClassifier".
 
 Step 1. Open "Classify Object Using Deep Learning" geoprocessing tool. 

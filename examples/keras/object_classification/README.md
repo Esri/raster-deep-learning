@@ -1,5 +1,5 @@
 # Keras House Damage Classification Example in ArcGIS Pro
-Step 0. Download test deep learning model, input image, input features from the link (TBD).
+Step 0. Download test deep learning model, input image, input features from the link [here](https://www.arcgis.com/home/item.html?id=8549fbf2be404e678934d224f9804298).
 You can also use your own trained model and test image. 
 
 Step 1. Open "Classify Object Using Deep Learning"
