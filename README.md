@@ -26,10 +26,10 @@ This repository serves to provide guidance on deep learning Python raster functi
 3. Set up the Python deep learning environment in ArcGIS. 
 
    Starting from ArcGIS Pro 2.6 and ArcGIS Enterprise 10.8.1, *[Deep Learning Libraries Installers for ArcGIS](https://github.com/esri/deep-learning-frameworks)* are provided, 
-   which includes a broad collection of components, such as PyTorch, TensorFlow, Fast.ai, that are required to run Deep Learning workflows in this repository. 
+   which include a broad collection of components, such as PyTorch, TensorFlow, Fast.ai, that are required to run Deep Learning workflows in this repository. 
    Users can download the installers from this GitHub repository: https://github.com/Esri/deep-learning-frameworks.   
 
-   For users on ArcGIS Pro 2.5 and ArcGIS Enterprise 10.8, or older. Please install the required deep learning libraries listed in *[requirements.txt](requirements.txt)*.
+   For users on ArcGIS Pro 2.5 and ArcGIS Enterprise 10.8, or older. Please install the required deep learning libraries listed in *[requirements.txt](requirements.txt)* using the following steps:
    
    - Install Python environments in ArcGIS Pro using the *[ArcGIS Pro Python Package Manager](http://pro.arcgis.com/en/pro-app/arcpy/get-started/what-is-conda.htm)*.
    
