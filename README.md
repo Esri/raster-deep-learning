@@ -23,7 +23,13 @@ This repository serves to provide guidance on deep learning Python raster functi
 2. [Download sample data, including imagery and trained deep learning models](https://www.arcgis.com/apps/MinimalGallery/index.html?appid=99c39f7512d54881bc365583c76c7da6).
    
    - Use the link above to download the sample data and models for four different model frameworks.
-3. Set up the Python deep learning environment in ArcGIS, and install the required deep learning libraries listed in *[requirements.txt](requirements.txt)*.
+3. Set up the Python deep learning environment in ArcGIS. 
+
+   Starting from ArcGIS Pro 2.6 and ArcGIS Enterprise 10.8.1, *[Deep Learning Libraries Installers for ArcGIS](https://github.com/esri/deep-learning-frameworks)* are provided, 
+   which include a broad collection of components, such as PyTorch, TensorFlow, Fast.ai, that are required to run Deep Learning workflows in this repository. 
+   Users can download the installers from this GitHub repository: https://github.com/Esri/deep-learning-frameworks.   
+
+   For users on ArcGIS Pro 2.5 and ArcGIS Enterprise 10.8, or older. Please install the required deep learning libraries listed in *[requirements.txt](requirements.txt)* using the following steps:
    
    - Install Python environments in ArcGIS Pro using the *[ArcGIS Pro Python Package Manager](http://pro.arcgis.com/en/pro-app/arcpy/get-started/what-is-conda.htm)*.
    
@@ -87,18 +93,6 @@ We provide deep learning model inference Python raster function (PRF) for a list
     [**[Sample case](examples/tensorflow/image_classification/land_cover_classification/README.md) | 
     [Sample emd file](examples/tensorflow/image_classification/land_cover_classification/tensorflow_deeplab_landclassification.emd) |
     [Sample PRF](python_raster_functions/TensorFlow/DeepLab.py)**]
-    
-* [Cognitive Toolkit (CNTK) object detection using Faster R-CNN](https://docs.microsoft.com/en-us/cognitive-toolkit/object-detection-using-faster-r-cnn)
-    
-    [**[Sample case](examples/cntk/object_detection/coconut_tree/README.md) | 
-    [Sample emd file](examples/cntk/object_detection/coconut_tree/cntk_fasterrcnn_coconut_tree.emd) |
-    [Sample PRF](python_raster_functions/CNTK/FasterRCNN.py)**]
-    
-* [Azure pixel-level land cover classification on Cognitive Toolkit (CNTK)](https://github.com/Azure/pixel_level_land_classification)
-
-    [**[Sample case](examples/cntk/image_classification/land_classification/README.md) | 
-    [Sample emd file](examples/cntk/image_classification/land_classification/azure_pixel_level_land_classification.emd) |
-    [Sample PRF](python_raster_functions/CNTK/AzurePixelLevelLandClassification.py)**]
     
 * [Keras Mask R-CNN for object detection and instance segmentation](https://github.com/matterport/Mask_RCNN)
   
