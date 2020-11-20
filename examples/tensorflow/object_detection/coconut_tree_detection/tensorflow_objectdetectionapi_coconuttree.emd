@@ -9,7 +9,7 @@
 
     "Classes" : [
       {
-        "Value": 0,
+        "Value": 1,
         "Name": "Tree",
         "Color": [0, 255, 0]
       }
