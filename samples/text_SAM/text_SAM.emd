@@ -1,0 +1,42 @@
+{
+    "ModelType": "ObjectDetection",
+    "InferenceFunction": "text_SAM.py",
+    "ExtractBands": [
+        0,
+        1,
+        2
+    ],
+    "Classes": [
+        {
+            "Value": 1,
+            "Name": "Object",
+            "Color": [
+                186,
+                199,
+                208
+            ]
+        }
+    ],
+    "ModelFormat": "NCHW",
+    "MinCellSize": {
+        "x": 2.146743517369032e-06,
+        "y": 2.155325191644639e-06,
+        "spatialReference": {
+            "wkid": 4326,
+            "latestWkid": 4326
+        }
+    },
+    "MaxCellSize": {
+        "x": 2.146743517369032e-06,
+        "y": 2.155325191644639e-06,
+        "spatialReference": {
+            "wkid": 4326,
+            "latestWkid": 4326
+        }
+    },
+    "SupportsVariableTileSize": true,
+    "ImageHeight": 1024,
+    "ImageWidth": 1024,
+    "ImageSpaceUsed": "MAP_SPACE",
+    "IsMultispectral": false
+}
