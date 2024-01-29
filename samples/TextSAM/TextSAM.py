@@ -194,7 +194,7 @@ class GeometryType:
     Polyline = 3
     Polygon = 4
     
-class text_SAM:
+class TextSAM:
     def __init__(self):
         self.name = "Text SAM Model"
         self.description = "This python raster function applies computer vision to segment anything from text input"
@@ -237,44 +237,35 @@ class text_SAM:
             else:
                 arcpy.env.processorType = "CPU"
                 self.device_id = "cpu"
-                
         
-        
-        # setting model path and loading model
+        # appending the current dir to path so that segment_anything,groundingdino and supervision can be imported     
         sam_root_dir = os.path.join(os.path.dirname(__file__), 'segment-anything')
         gdino_root_dir = os.path.join(os.path.dirname(__file__), 'GroundingDINO-main')
         supervision_root_dir = os.path.dirname(__file__)
-
         if sam_root_dir not in sys.path:
             sys.path.insert(0, sam_root_dir)
         if gdino_root_dir not in sys.path:
             sys.path.insert(0, gdino_root_dir)
         if supervision_root_dir not in sys.path:
             sys.path.insert(0, supervision_root_dir)
-        # if sys.path[0] != prf_root_dir:
-            # sys.path.insert(0, prf_root_dir)
-            
-        
+          
+        # importing segment_anything, groundingdino and other dependencies
         from segment_anything import sam_model_registry, SamPredictor
-        sam_checkpoint =  os.path.join(sam_root_dir, "models/sam_vit_b_01ec64.pth")#sam_vit_l_0b3195.pth"
-        model_type = "vit_b"
-        sam = sam_model_registry[model_type](checkpoint=sam_checkpoint)
-        sam.to(device=self.device_id)
-        self.mask_generator = SamPredictor(sam)
-        # self.mask_generator1 = SamPredictor(sam)
-        
-        
-
-        
         from groundingdino.models import build_model
         from groundingdino.util.slconfig import SLConfig
         from groundingdino.util.utils import clean_state_dict
         import torch
-
         
+        # loading the SAM model checkpoint and initliazing SAM mask_generator
+        sam_checkpoint =  os.path.join(sam_root_dir, "models/sam_vit_b_01ec64.pth")
+        model_type = "vit_b"
+        sam = sam_model_registry[model_type](checkpoint=sam_checkpoint)
+        sam.to(device=self.device_id)
+        self.mask_generator = SamPredictor(sam)
+        
+        # loading the GroundingDINO model checkpoint and config file and initliazing GroundingDINO
         cache_file = os.path.join(gdino_root_dir,r"models/groundingdino_swinb_cogcoor.pth")
-        cache_config_file = os.path.join(gdino_root_dir,r"models/GroundingDINO_SwinB.cfg.py")
-        
+        cache_config_file = os.path.join(gdino_root_dir,r"models/GroundingDINO_SwinB.cfg.py")        
         args = SLConfig.fromfile(cache_config_file)
         self.groundingdino_model = build_model(args)
         self.groundingdino_model.to(device=self.device_id)
@@ -431,9 +422,7 @@ class text_SAM:
         
         mask_list = []
         score_list = []
-        
-        
-        
+
         from PIL import Image
         import torch
         import groundingdino.datasets.transforms as T

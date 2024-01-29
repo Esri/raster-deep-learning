@@ -1,6 +1,6 @@
-# Text SAM DLPK For ArcGIS PRO 
+# TextSAM DLPK For ArcGIS Pro
 
-This sample showcases a deep learning package (DLPK) to generate masks for an object using text prompts in ArcGIS PRO. It is achieved by using Segment Anything Model (SAM) and GroundingDINO. Both models are called sequentially within this deep learning package.
+This sample showcases a deep learning package (DLPK) to generate masks for an object using text prompts in ArcGIS Pro. It is achieved by using Segment Anything Model (SAM) and GroundingDINO. Grounding DINO is an open set object detector that can find objects given a text prompt. The bounding boxes representing the detected objects are then fed into Segment Anything Model as prompts to generate masks for those. Finally, the masks are converted to polygons by this model and returned as GIS features. Both models are called sequentially within this deep learning package.
 
 ## Prerequisites
 1. ArcGIS Pro 2.3 or later
@@ -42,10 +42,11 @@ on the necessary functions and how to implement model inference calls using Pyth
    pip install segment-anything
    ```
 
-5. Download the Segment Anything Model (SAM) checkpoint from the [repo](https://github.com/facebookresearch/segment-anything?tab=readme-ov-file#model-checkpoints) and point to it in the [text_SAM.py](text_SAM.py) file.
+5. Download the Segment Anything Model (SAM) checkpoint from the [repo](https://github.com/facebookresearch/segment-anything?tab=readme-ov-file#model-checkpoints) and point to it in the [TextSAM.py](TextSAM.py) file.
 
-6. Download the GroundingDINO checkpoint and Config file from the [repo](https://github.com/IDEA-Research/GroundingDINO?tab=readme-ov-file#luggage-checkpoints) and point to it in the [text_SAM.py](text_SAM.py) file.
+6. Download the GroundingDINO checkpoint and Config file from the [repo](https://github.com/IDEA-Research/GroundingDINO?tab=readme-ov-file#luggage-checkpoints) and point to it in the [TextSAM.py](TextSAM.py) file.
 
+7. Finally, to create a standalone DLPK, you may create a 7zip archive containing the model weights, source code of grounding_dino and segment_anything, along with the EMD and .py inference function from this repo. The archive should be given a DLPK extension.
 
 ## Issues
 

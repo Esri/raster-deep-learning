@@ -1,6 +1,6 @@
 {
     "ModelType": "ObjectDetection",
-    "InferenceFunction": "text_SAM.py",
+    "InferenceFunction": "TextSAM.py",
     "ExtractBands": [
         0,
         1,
