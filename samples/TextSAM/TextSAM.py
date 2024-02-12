@@ -443,18 +443,18 @@ class TextSAM:
                 ]
             )
             image_transformed, _ = transform(pil_image, None)
-            final_caption = ""
+            input_prompts = ""
             if "," in self.text_prompt:
                 split_prompts = self.text_prompt.split(',')
                 cleaned_items = [split_prompt.strip() for split_prompt in split_prompts]
-                final_caption = ' . '.join(cleaned_items)
+                input_prompts = ' . '.join(cleaned_items)
             else:
-                final_caption = self.text_prompt
+                input_prompts = self.text_prompt
             try:
                 boxes, logits, phrases = predict(
                     model=self.groundingdino_model,
                     image=image_transformed,
-                    caption=final_caption,
+                    caption=input_prompts,
                     box_threshold=self.box_threshold,
                     text_threshold=self.text_threshold,
                     device=self.device_id,
