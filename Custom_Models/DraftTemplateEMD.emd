@@ -1,0 +1,25 @@
+{
+    "ModelFile": "frozen_inference_graph.pb",
+    "InferenceFunction": "DraftTemplateObjectDetector.py",
+    "ModelType": "ObjectDetection",
+    "ImageHeight": 512,
+    "ImageWidth": 512,
+    "Padding": 0,
+    "Threshold": 0.5,
+    "BatchSize": 64,
+    "ExtractBands": [0,1,2],
+    "DataRange":[0.1, 1.0],
+
+    "Classes": [
+      {
+        "Value": 1,
+        "Name": "Airplane",
+        "Color": [0, 255, 0]
+      },
+      {
+        "Value": 2,
+        "Name": "Calf",
+        "Color": [255, 255, 0]
+      }
+    ]
+}
