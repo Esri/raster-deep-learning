@@ -71,7 +71,7 @@ This repository serves to provide guidance on deep learning Python raster functi
 5. (Optional) Get familiar with *Python raster function*.
 *[Anatomy of a Python Raster Function](https://github.com/Esri/raster-functions/wiki/PythonRasterFunction#anatomy-of-a-python-raster-function)*.  
  
-6. (Optional) If you are interested in writing custom deep learning Python raster function to integrate additional deep learning
+6. (Optional) If you are interested in writing custom deep learning Python raster functions to integrate additional deep learning
 models into ArcGIS, the
 *[Custom Python raster function guide](docs/writing_deep_learning_python_raster_functions.md)* provides details 
 on the necessary functions and how to implement model inference calls using Python raster function.    
