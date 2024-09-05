@@ -27,7 +27,9 @@ to ensure that ArcGIS delivers the pixel blocks of the correct size.
         "Name": "Tree",
         "Color": [0, 255, 0]
       }
-    ]
+    ],
+    "ModelName": "ModelNameofYourChoice"
+    "Version": "2024.9"
 }
 ```
 ## Keywords supported in built-in Python raster functions:
@@ -143,6 +145,18 @@ to ensure that ArcGIS delivers the pixel blocks of the correct size.
   Deep learning Python raster function templates are also provided to help you writing your custom deep learning 
   Python raster function.  
   
+- ModelName
+
+  Type: String.
+
+  Optional. Example format: "ModelNameofYourChoice". This is the model name of user's choice.  
+  
+- Version
+
+  Type: String.
+
+  Optional. Example format: "YYYY.MM". This is the model's version by year and month.
+
 ## EMD for custom Python raster functions
 If you find that the sample model definition files and built-in Python raster function cannot describe your deep learning
 model architecture/properties, or if you use a deep learning framework other than TensorFlow, Keras, CNTK, or PyTorch, you

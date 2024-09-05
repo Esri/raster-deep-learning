@@ -1,17 +1,19 @@
 {
-    "Framework": "TensorFlow",
-    "ModelConfiguration": "ObjectDetectionAPI",
-    "ModelFile":".\\frozen_inference_graph.pb",
-    "ModelType":"ObjectDetection",
-    "ImageHeight":850,
-    "ImageWidth":850,
-    "ExtractBands":[0,1,2],
+  "Framework": "TensorFlow",
+  "ModelConfiguration": "ObjectDetectionAPI",
+  "ModelFile":".\\frozen_inference_graph.pb",
+  "ModelType":"ObjectDetection",
+  "ImageHeight":850,
+  "ImageWidth":850,
+  "ExtractBands":[0,1,2],
 
-    "Classes" : [
-      {
-        "Value": 1,
-        "Name": "Tree",
-        "Color": [0, 255, 0]
-      }
-    ]
+  "Classes" : [
+    {
+      "Value": 1,
+      "Name": "Tree",
+      "Color": [0, 255, 0]
+    }
+  ],
+  "ModelName": "CoconutTree_TF_ObjectDetectionAPI",
+  "Version": "2019.02"
 }
