@@ -1,0 +1,870 @@
+{
+  "Framework": "Onnx",
+  "ModelConfiguration": "ObjectDetectionAPI",
+  "ModelFile": "saved_model.onnx",
+  "ModelType": "ObjectDetection",
+  "ImageHeight": 300,
+  "ImageWidth": 300,
+  "ExtractBands": [
+    0,
+    1,
+    2
+  ],
+  "Classes": [
+    {
+      "Value": 1,
+      "Name": "Clutter",
+      "Color": [
+        127,
+        127,
+        127
+      ]
+    },
+    {
+      "Value": 2,
+      "Name": "Clutter",
+      "Color": [
+        127,
+        127,
+        127
+      ]
+    },
+    {
+      "Value": 3,
+      "Name": "Clutter",
+      "Color": [
+        127,
+        127,
+        127
+      ]
+    },
+    {
+      "Value": 4,
+      "Name": "Clutter",
+      "Color": [
+        127,
+        127,
+        127
+      ]
+    },
+    {
+      "Value": 5,
+      "Name": "Clutter",
+      "Color": [
+        127,
+        127,
+        127
+      ]
+    },
+    {
+      "Value": 6,
+      "Name": "Clutter",
+      "Color": [
+        127,
+        127,
+        127
+      ]
+    },
+    {
+      "Value": 7,
+      "Name": "Clutter",
+      "Color": [
+        127,
+        127,
+        127
+      ]
+    },
+    {
+      "Value": 8,
+      "Name": "Clutter",
+      "Color": [
+        127,
+        127,
+        127
+      ]
+    },
+    {
+      "Value": 9,
+      "Name": "Clutter",
+      "Color": [
+        127,
+        127,
+        127
+      ]
+    },
+    {
+      "Value": 10,
+      "Name": "Clutter",
+      "Color": [
+        127,
+        127,
+        127
+      ]
+    },
+    {
+      "Value": 11,
+      "Name": "Fixed-wing Aircraft",
+      "Color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "Value": 12,
+      "Name": "Small Aircraft",
+      "Color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "Value": 13,
+      "Name": "Passenger/Cargo Plane",
+      "Color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "Value": 14,
+      "Name": "Clutter",
+      "Color": [
+        127,
+        127,
+        127
+      ]
+    },
+    {
+      "Value": 15,
+      "Name": "Helicopter",
+      "Color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "Value": 16,
+      "Name": "Clutter",
+      "Color": [
+        127,
+        127,
+        127
+      ]
+    },
+    {
+      "Value": 17,
+      "Name": "Passenger Vehicle",
+      "Color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "Value": 18,
+      "Name": "Small Car",
+      "Color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "Value": 19,
+      "Name": "Bus",
+      "Color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "Value": 20,
+      "Name": "Pickup Truck",
+      "Color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "Value": 21,
+      "Name": "Utility Truck",
+      "Color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "Value": 22,
+      "Name": "Clutter",
+      "Color": [
+        127,
+        127,
+        127
+      ]
+    },
+    {
+      "Value": 23,
+      "Name": "Truck",
+      "Color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "Value": 24,
+      "Name": "Cargo Truck",
+      "Color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "Value": 25,
+      "Name": "Truck Tractor w/ Box Trailer",
+      "Color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "Value": 26,
+      "Name": "Truck Tractor",
+      "Color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "Value": 27,
+      "Name": "Trailer",
+      "Color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "Value": 28,
+      "Name": "Truck Tractor w/ Flatbed Trailer",
+      "Color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "Value": 29,
+      "Name": "Truck Tractor w/ Liquid Tank",
+      "Color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "Value": 30,
+      "Name": "Clutter",
+      "Color": [
+        127,
+        127,
+        127
+      ]
+    },
+    {
+      "Value": 31,
+      "Name": "Clutter",
+      "Color": [
+        127,
+        127,
+        127
+      ]
+    },
+    {
+      "Value": 32,
+      "Name": "Crane Truck",
+      "Color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "Value": 33,
+      "Name": "Railway Vehicle",
+      "Color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "Value": 34,
+      "Name": "Passenger Car",
+      "Color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "Value": 35,
+      "Name": "Cargo/Container Car",
+      "Color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "Value": 36,
+      "Name": "Flat Car",
+      "Color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "Value": 37,
+      "Name": "Tank car",
+      "Color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "Value": 38,
+      "Name": "Locomotive",
+      "Color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "Value": 39,
+      "Name": "Clutter",
+      "Color": [
+        127,
+        127,
+        127
+      ]
+    },
+    {
+      "Value": 40,
+      "Name": "Maritime Vessel",
+      "Color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "Value": 41,
+      "Name": "Motorboat",
+      "Color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "Value": 42,
+      "Name": "Sailboat",
+      "Color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "Value": 43,
+      "Name": "Clutter",
+      "Color": [
+        127,
+        127,
+        127
+      ]
+    },
+    {
+      "Value": 44,
+      "Name": "Tugboat",
+      "Color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "Value": 45,
+      "Name": "Barge",
+      "Color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "Value": 46,
+      "Name": "Clutter",
+      "Color": [
+        127,
+        127,
+        127
+      ]
+    },
+    {
+      "Value": 47,
+      "Name": "Fishing Vessel",
+      "Color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "Value": 48,
+      "Name": "Clutter",
+      "Color": [
+        127,
+        127,
+        127
+      ]
+    },
+    {
+      "Value": 49,
+      "Name": "Ferry",
+      "Color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "Value": 50,
+      "Name": "Yacht",
+      "Color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "Value": 51,
+      "Name": "Container Ship",
+      "Color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "Value": 52,
+      "Name": "Oil Tanker",
+      "Color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "Value": 53,
+      "Name": "Engineering Vehicle",
+      "Color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "Value": 54,
+      "Name": "Tower crane",
+      "Color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "Value": 55,
+      "Name": "Container Crane",
+      "Color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "Value": 56,
+      "Name": "Reach Stacker",
+      "Color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "Value": 57,
+      "Name": "Straddle Carrier",
+      "Color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "Value": 58,
+      "Name": "Clutter",
+      "Color": [
+        127,
+        127,
+        127
+      ]
+    },
+    {
+      "Value": 59,
+      "Name": "Mobile Crane",
+      "Color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "Value": 60,
+      "Name": "Dump Truck",
+      "Color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "Value": 61,
+      "Name": "Haul Truck",
+      "Color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "Value": 62,
+      "Name": "Scraper/Tractor",
+      "Color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "Value": 63,
+      "Name": "Front loader/Bulldozer",
+      "Color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "Value": 64,
+      "Name": "Excavator",
+      "Color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "Value": 65,
+      "Name": "Cement Mixer",
+      "Color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "Value": 66,
+      "Name": "Ground Grader",
+      "Color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "Value": 67,
+      "Name": "Clutter",
+      "Color": [
+        127,
+        127,
+        127
+      ]
+    },
+    {
+      "Value": 68,
+      "Name": "Clutter",
+      "Color": [
+        127,
+        127,
+        127
+      ]
+    },
+    {
+      "Value": 69,
+      "Name": "Clutter",
+      "Color": [
+        127,
+        127,
+        127
+      ]
+    },
+    {
+      "Value": 70,
+      "Name": "Clutter",
+      "Color": [
+        127,
+        127,
+        127
+      ]
+    },
+    {
+      "Value": 71,
+      "Name": "Hut/Tent",
+      "Color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "Value": 72,
+      "Name": "Shed",
+      "Color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "Value": 73,
+      "Name": "Building",
+      "Color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "Value": 74,
+      "Name": "Aircraft Hangar",
+      "Color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "Value": 75,
+      "Name": "Clutter",
+      "Color": [
+        127,
+        127,
+        127
+      ]
+    },
+    {
+      "Value": 76,
+      "Name": "Damaged Building",
+      "Color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "Value": 77,
+      "Name": "Facility",
+      "Color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "Value": 78,
+      "Name": "Clutter",
+      "Color": [
+        127,
+        127,
+        127
+      ]
+    },
+    {
+      "Value": 79,
+      "Name": "Construction Site",
+      "Color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "Value": 80,
+      "Name": "Clutter",
+      "Color": [
+        127,
+        127,
+        127
+      ]
+    },
+    {
+      "Value": 81,
+      "Name": "Clutter",
+      "Color": [
+        127,
+        127,
+        127
+      ]
+    },
+    {
+      "Value": 82,
+      "Name": "Clutter",
+      "Color": [
+        127,
+        127,
+        127
+      ]
+    },
+    {
+      "Value": 83,
+      "Name": "Vehicle Lot",
+      "Color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "Value": 84,
+      "Name": "Helipad",
+      "Color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "Value": 85,
+      "Name": "Clutter",
+      "Color": [
+        127,
+        127,
+        127
+      ]
+    },
+    {
+      "Value": 86,
+      "Name": "Storage Tank",
+      "Color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "Value": 87,
+      "Name": "Clutter",
+      "Color": [
+        127,
+        127,
+        127
+      ]
+    },
+    {
+      "Value": 88,
+      "Name": "Clutter",
+      "Color": [
+        127,
+        127,
+        127
+      ]
+    },
+    {
+      "Value": 89,
+      "Name": "Shipping container lot",
+      "Color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "Value": 90,
+      "Name": "Clutter",
+      "Color": [
+        127,
+        127,
+        127
+      ]
+    },
+    {
+      "Value": 91,
+      "Name": "Shipping Container",
+      "Color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "Value": 92,
+      "Name": "Clutter",
+      "Color": [
+        127,
+        127,
+        127
+      ]
+    },
+    {
+      "Value": 93,
+      "Name": "Pylon",
+      "Color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "Value": 94,
+      "Name": "Tower",
+      "Color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "Value": 95,
+      "Name": "Clutter",
+      "Color": [
+        127,
+        127,
+        127
+      ]
+    }
+  ]
+}
